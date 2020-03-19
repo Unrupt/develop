@@ -689,10 +689,11 @@ function saveMID(id){
 
 function setRole() {
     cid = $.getUrlVar("unruptId");
+	
     if ( cid != undefined ){
         cid = cid.replace("#", "");
     }
-    mid = localStorage['unruptId'];
+	 mid = sessionStorage['unruptId'];
     console.log('URL unrupt ID:', cid);
     console.log('localStorage unrupt ID:', mid);
     if (!mid) {
@@ -711,10 +712,17 @@ function setRole() {
         }
         mid = hexCodes.join("").toLowerCase();
         console.log("mid =", mid);
-        localStorage['unruptId'] = mid;
+		sessionStorage['unruptId'] = mid;
+        
+		
+		
+		
     }
     if (cid == null) {
         document.location = location.pathname + "?" + "unruptId=" + mid;
+		//bmid = mid;
+       //mid = localStorage[bmid];
+	   
         // this has the effect of getting our id into the browser bar -
         // making it easy to share etc
     } else {
@@ -738,7 +746,9 @@ function setRole() {
             if (url) {
                 qrcode.makeCode(url);
             }
+			
             initiator = (mid === cid);
+			
             console.log(initiator ? 'We are the initiator' : 'We are not the initiator');
             var smodal = initiator ? "#share" : "#accept";
             if( call_has_ended ){
