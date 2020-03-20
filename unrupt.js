@@ -713,6 +713,7 @@ function setRole() {
         mid = hexCodes.join("").toLowerCase();
         console.log("mid =", mid);
 		sessionStorage['unruptId'] = mid;
+		localStorage.setItem(mid, mid);
         
 		
 		
@@ -746,8 +747,8 @@ function setRole() {
             if (url) {
                 qrcode.makeCode(url);
             }
-			
-            initiator = (mid === cid);
+			check = localStorage.getItem(cid);
+            initiator = (mid === cid || mid === check);
 			
             console.log(initiator ? 'We are the initiator' : 'We are not the initiator');
             var smodal = initiator ? "#share" : "#accept";
