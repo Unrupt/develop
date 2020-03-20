@@ -747,7 +747,7 @@ function setRole() {
             if (url) {
                 qrcode.makeCode(url);
             }
-			var check = localStorage(cid);
+			var check = localStorage.getItem(cid);
 			console.log('is this mid in localstorage' , check);
 			initiator = (mid === cid || cid === check);
 			//alert (initiator);
