@@ -747,9 +747,10 @@ function setRole() {
             if (url) {
                 qrcode.makeCode(url);
             }
-			check = localStorage.getItem(cid);
-            initiator = (mid === cid || mid === check);
-			
+			var check = localStorage.getItem(cid);
+			console.log('is this mid in localstorage' , check);
+			initiator = (mid === cid || cid === check);
+			//alert (initiator);
             console.log(initiator ? 'We are the initiator' : 'We are not the initiator');
             var smodal = initiator ? "#share" : "#accept";
             if( call_has_ended ){
@@ -790,6 +791,15 @@ function turnOffVideo(){
 $(document).on('click', "#chooseActionVideo", function () {
     turnOffVideo();
 });
+
+function newconvo()
+{
+	localStorage['unruptId']=undefined;
+	 delete(localStorage['unruptId']);
+	 window.location = window.location.href.split("?")[0];
+}
+
+
 
 // thing that draws the scopes...
 function makeDraw(canvName, anode) {
