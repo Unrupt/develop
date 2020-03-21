@@ -794,9 +794,8 @@ $(document).on('click', "#chooseActionVideo", function () {
 
 function newconvo()
 {
-	localStorage['unruptId']=undefined;
-	 delete(localStorage['unruptId']);
-	 window.location = window.location.href.split("?")[0];
+	sessionStorage.clear(); 
+	window.location = window.location.href.split("?")[0];
 }
 
 
