@@ -693,7 +693,7 @@ function setRole() {
     if ( cid != undefined ){
         cid = cid.replace("#", "");
     }
-	 mid = sessionStorage['unruptId'];
+	// mid = sessionStorage['unruptId'];
     console.log('URL unrupt ID:', cid);
     console.log('localStorage unrupt ID:', mid);
     if (!mid) {
@@ -712,7 +712,7 @@ function setRole() {
         }
         mid = hexCodes.join("").toLowerCase();
         console.log("mid =", mid);
-		sessionStorage['unruptId'] = mid;
+		//sessionStorage['unruptId'] = mid;
 		localStorage.setItem(mid, mid);
         
 		
@@ -794,7 +794,8 @@ $(document).on('click', "#chooseActionVideo", function () {
 
 function newconvo()
 {
-	sessionStorage.clear(); 
+	sessionStorage.removeItem('unruptId');
+	//sessionStorage.clear(); 
 	window.location = window.location.href.split("?")[0];
 }
 
