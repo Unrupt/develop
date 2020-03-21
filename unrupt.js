@@ -693,7 +693,7 @@ function setRole() {
     if ( cid != undefined ){
         cid = cid.replace("#", "");
     }
-	// mid = sessionStorage['unruptId'];
+	 mid = localStorage.getItem(cid);
     console.log('URL unrupt ID:', cid);
     console.log('localStorage unrupt ID:', mid);
     if (!mid) {
