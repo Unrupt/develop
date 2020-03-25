@@ -48,7 +48,7 @@ var peerConnectionOfferAnswerCriteria = {
 var recorder;
 var lastLoss = 0;
 var lastRecv =0;
-
+var join;
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
