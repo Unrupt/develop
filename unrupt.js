@@ -44,6 +44,8 @@ var peerConnectionOfferAnswerCriteria = {
     offerToReceiveAudio: true,
     offerToReceiveVideo: false
 };
+var lastLoss = 0;
+var lastRecv =0;
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
