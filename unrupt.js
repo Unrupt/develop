@@ -44,8 +44,11 @@ var peerConnectionOfferAnswerCriteria = {
     offerToReceiveAudio: true,
     offerToReceiveVideo: false
 };
+
+var recorder;
 var lastLoss = 0;
 var lastRecv =0;
+
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
@@ -181,6 +184,8 @@ function startCall(cid) {
 
 function stopCall() {
     localStorage.setItem("call_has_ended", true);
+	recorder.stop();
+	
     window.location.href = window.location.href;
 }
 
