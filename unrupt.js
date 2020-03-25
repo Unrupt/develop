@@ -557,18 +557,20 @@ function addStream(stream, kind) {
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
         //$("#chosenAction").show();
-		var peer2 = myac.createMediaStreamSource(stream);
+		document.getElementById("them").srcObject = newstream;
+		var peer2 = myac.createMediaStreamSource(newstream);
+		
 		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
                 peer2.connect(splityou);
                 splityou.connect(join,1,1);
 
                 // join already connected to dcomp
                 var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream);
+                recorder = new MediaRecorder(recStream.newstream);
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
-			repaintDuration();
+			//repaintDuration();
 		};
         
        	recorder.onstop = function(evt) {
@@ -580,14 +582,13 @@ function addStream(stream, kind) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
         recorder.start(10000);
-            } else {
-                recorder = window.setInterval(repaintDuration,10000);
+            
             }
             window.setInterval(checkLoss,1000);
 
             startRecTime = Date.now();
          			
-		
+
 		
      
 }
