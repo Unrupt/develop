@@ -49,6 +49,7 @@ var recorder;
 var lastLoss = 0;
 var lastRecv =0;
 var join;
+
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
@@ -665,6 +666,11 @@ function setupAudio() {
                 var detect = myProc(node);
                 var manl = doScopeNode(myac, detect, "nearscope");
                 var dest = myac.createMediaStreamDestination();
+				let splitme = myac.createChannelSplitter(2); // 2 outputs L and R
+                join = myac.createChannelMerger(2); // nominally 2 inputs L and R
+                node.connect(splitme);
+                splitme.connect(join,0,0)
+                join.connect(dcomp);
                 manl.connect(dest);
                 var lstream = dest.stream;
 
