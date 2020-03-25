@@ -46,6 +46,7 @@ var peerConnectionOfferAnswerCriteria = {
     offerToReceiveVideo: false
 };
 
+var chunks = [];
 var recorder;
 var lastLoss = 0;
 var lastRecv =0;
