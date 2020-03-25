@@ -38,6 +38,7 @@ var tick;
 var iamspeaking = false;
 var mute = false;
 var paused = false;
+var startRecTime = 0;
 var videoEnabled = true;
 var myVideoELement, otherUserVideoElement;
 var peerConnectionOfferAnswerCriteria = {
