@@ -443,6 +443,68 @@ function myProc(node) {
     return buffer;
 }
 
+function checkLoss(){
+        pc.getReceivers()[0].getStats().then(
+            function(rs) {
+                rs.forEach( function (d){
+                        if(d.type ==="inbound-rtp"){
+                            var recvd = d.packetsReceived;
+                            var lost = d.packetsLost;
+                            if (lost > lastLoss){
+                                $("#packetLoss").show();
+                                var diffl = lost - lastLoss;
+                                var diffp = recvd -lastRecv;
+                                var pct = Math.ceil(100.0 * diffl /diffp);
+                                $("#countZero").text(""+pct);
+                            } else {
+                                $("#packetLoss").hide();
+                            }
+                            lastLoss = lost;
+                            lastRecv = recvd;
+                        }
+                        if ((d.type ==="candidate-pair")&&(d.nominated)){
+                            $("#delay").text(""+d.currentRoundTripTime);
+                        }
+                        if (d.type === "remote-candidate"){
+                            $("#remote").text(d.candidateType);
+                        }
+                        if (d.type === "local-candidate"){
+                            $("#local").text(d.candidateType);
+                        }
+                    }
+                )
+            });
+    }
+
+
+function saveData(blob) {
+        var fileName = 'distributedFuture-'+new Date().toISOString() + '.webm';
+
+        console.log("Save data ?");
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        console.log("saving wav blob as " + fileName);
+        url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+        saved = true;
+        $("#status").text("Call saved as "+fileName);
+
+    }
+
+function repaintDuration(){
+        var diff = Date.now() - startRecTime;
+        console.log ("data on at "+diff);
+        var mins = Math.floor(diff / 60000);
+        var secs = Math.floor((diff % 60000) / 1000);
+        $("#duration").text(""+mins+":"+secs);
+    }
+	
+	
+
 // called when webRTC presents us with a fresh remote audio stream
 function addStream(stream, kind) {
     if (!kind) {
@@ -479,7 +541,36 @@ function addStream(stream, kind) {
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
         //$("#chosenAction").show();
-     }
+		let splityou = yourac.createChannelSplitter(2);
+        peer.connect(splityou);	
+		splityou.connect(join,1,1);
+		var recStream = yourac.createMediaStreamDestination();
+		recorder = new MediaRecorder(recStream.stream);
+		dcomp.connect(recStream);
+		recorder.ondataavailable = function(evt) {
+			chunks.push(evt.data);
+			repaintDuration();
+		};
+        
+       	recorder.onstop = function(evt) {
+		var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+        saveData(blob)	
+		};
+        
+        stream.onremovetrack = function(event) {
+                    console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
+                };
+        recorder.start(10000);
+            } else {
+                recorder = window.setInterval(repaintDuration,10000);
+            }
+            window.setInterval(checkLoss,1000);
+
+            startRecTime = Date.now();
+         			
+		
+		
+     
 }
 
 // configure local peerconnection and handlers
