@@ -557,10 +557,10 @@ function addStream(stream, kind) {
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
         //$("#chosenAction").show();
-		document.getElementById("them").srcObject = newstream;
-		var peer2 = myac.createMediaStreamSource(newstream);
 		
-		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
+		var peer2 = myac.createMediaStreamSource(stream);
+		
+		let splityou = myac.createChannelSplitter(stream); // 2 outputs L and R
                 peer2.connect(splityou);
                 splityou.connect(join,1,1);
 
