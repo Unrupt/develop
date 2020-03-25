@@ -570,7 +570,7 @@ function addStream(stream, kind) {
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
-			//repaintDuration();
+			repaintDuration();
 		};
         
        	recorder.onstop = function(evt) {
@@ -582,11 +582,11 @@ function addStream(stream, kind) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
         recorder.start(10000);
-            
-            }
-            window.setInterval(checkLoss,1000);
+        window.setInterval(checkLoss,1000);
 
-            startRecTime = Date.now();
+            startRecTime = Date.now();    
+            }
+            
          			
 
 		
