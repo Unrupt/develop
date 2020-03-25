@@ -193,8 +193,8 @@ function stopCall() {
 	{
 	recorder.stop();
     }
-	else 
-		alert('no recording started');
+	//else 
+		//alert('no recording started');
 	
     window.location.href = window.location.href;
 }
@@ -582,7 +582,7 @@ function addStream(stream, kind) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
         recorder.start(10000);
-		alert('recordertarted');
+		//alert('recordertarted');
         window.setInterval(checkLoss,1000);
 
             startRecTime = Date.now();    
