@@ -560,7 +560,7 @@ function addStream(stream, kind) {
 		
 		var peer2 = myac.createMediaStreamSource(stream);
 		
-		let splityou = myac.createChannelSplitter(stream); // 2 outputs L and R
+		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
                 peer2.connect(splityou);
                 splityou.connect(join,1,1);
 
