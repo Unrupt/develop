@@ -188,6 +188,7 @@ function startCall(cid) {
 
 function stopCall() {
     localStorage.setItem("call_has_ended", true);
+	localStream.getAudioTracks()[0].stop();
 	if(recorder)
 	{
 	recorder.stop();
