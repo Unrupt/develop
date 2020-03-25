@@ -555,12 +555,15 @@ function addStream(stream, kind) {
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
         //$("#chosenAction").show();
-		let splityou = yourac.createChannelSplitter(2);
-        peer.connect(splityou);	
-		splityou.connect(join,1,1);
-		var recStream = yourac.createMediaStreamDestination();
-		recorder = new MediaRecorder(recStream.stream);
-		dcomp.connect(recStream);
+		var peer2 = myac.createMediaStreamSource(stream);
+		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
+                peer2.connect(splityou);
+                splityou.connect(join,1,1);
+
+                // join already connected to dcomp
+                var recStream = myac.createMediaStreamDestination();
+                recorder = new MediaRecorder(recStream.stream);
+                dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
 			repaintDuration();
