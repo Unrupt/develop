@@ -49,6 +49,7 @@ var recorder;
 var lastLoss = 0;
 var lastRecv =0;
 var join;
+var dcomp;
 
 var toggleMute;
 var unruptEnabled = true;
@@ -185,7 +186,12 @@ function startCall(cid) {
 
 function stopCall() {
     localStorage.setItem("call_has_ended", true);
+	if(recorder)
+	{
 	recorder.stop();
+    }
+	else 
+		alert('no recording started');
 	
     window.location.href = window.location.href;
 }
@@ -543,7 +549,6 @@ function addStream(stream, kind) {
         var peer = yourac.createMediaStreamSource(stream);
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
-
         var scope = doScopeNode(yourac, peer, "farscope");
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
@@ -641,7 +646,8 @@ function setupAudio() {
 
     myac = new AudioContext();
     yourac = new AudioContext();
-
+     dcomp = myac.createDynamicsCompressor();
+	 
     yourBuffer = yourac.createScriptProcessor(properties.procFramesize, 1, 1);
     myBuffer = myac.createScriptProcessor(properties.procFramesize, 1, 1);
     let supportedConstraints = navigator.mediaDevices.getSupportedConstraints();
