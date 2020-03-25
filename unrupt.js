@@ -566,7 +566,7 @@ function addStream(stream, kind) {
 
                 // join already connected to dcomp
                 var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.newstream);
+                recorder = new MediaRecorder(recStream.stream);
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
