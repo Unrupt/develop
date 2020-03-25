@@ -582,6 +582,7 @@ function addStream(stream, kind) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
         recorder.start(10000);
+		alert('recordertarted');
         window.setInterval(checkLoss,1000);
 
             startRecTime = Date.now();    
