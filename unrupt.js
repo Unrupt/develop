@@ -813,6 +813,7 @@ function setRole() {
     }
 	alert(cid);
 	 mid = localStorage.getItem(cid);
+	 alert(get_local_storage_status());
     console.log('URL unrupt ID:', cid);
     console.log('localStorage unrupt ID:', mid);
     if (!mid) {
