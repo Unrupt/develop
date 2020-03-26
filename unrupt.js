@@ -813,9 +813,9 @@ function setRole() {
     if ( cid != undefined ){
         cid = cid.replace("#", "");
     }
-	alert(cid);
-	 //mid = localStorage.getItem(cid);
-	 mid = localStorage(cid);
+	
+	 mid = localStorage.getItem(cid);
+	
 	 
     console.log('URL unrupt ID:', cid);
     console.log('localStorage unrupt ID:', mid);
