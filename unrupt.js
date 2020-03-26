@@ -558,34 +558,34 @@ function addStream(stream, kind) {
         scope2.connect(yourac.destination);
         //$("#chosenAction").show();
 		
-		var peer2 = myac.createMediaStreamSource(stream);
+		//var peer2 = myac.createMediaStreamSource(stream);
 		
-		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
-                peer2.connect(splityou);
-                splityou.connect(join,1,1);
+		//let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
+               // peer2.connect(splityou);
+                //splityou.connect(join,1,1);
 
                 // join already connected to dcomp
-                var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream);
-                dcomp.connect(recStream);
-		recorder.ondataavailable = function(evt) {
-			chunks.push(evt.data);
-			repaintDuration();
-		};
+                //var recStream = myac.createMediaStreamDestination();
+                //recorder = new MediaRecorder(recStream.stream);
+                //dcomp.connect(recStream);
+		//recorder.ondataavailable = function(evt) {
+			//chunks.push(evt.data);
+			//repaintDuration();
+		//};
         
        	recorder.onstop = function(evt) {
 		var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
         saveData(blob)	
 		};
         
-        stream.onremovetrack = function(event) {
-                    console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
-                };
-        recorder.start(10000);
+        //stream.onremovetrack = function(event) {
+                    //console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
+               // };
+        //recorder.start(10000);
 		//alert('recordertarted');
-        window.setInterval(checkLoss,1000);
+       // window.setInterval(checkLoss,1000);
 
-            startRecTime = Date.now();    
+           // startRecTime = Date.now();    
             }
             
          			
