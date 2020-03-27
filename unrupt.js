@@ -550,24 +550,13 @@ function addStream(stream, kind) {
     }
      if (kind.indexOf("audio") != -1) {
         var peer = yourac.createMediaStreamSource(stream);
-
-        console.log('Audio sample Rate is ' + yourac.sampleRate);
-        var scope = doScopeNode(yourac, peer, "farscope");
-        var buffproc = yourProc(scope);
-        var scope2 = doScopeNode(yourac, buffproc, "earscope");
-        scope2.connect(yourac.destination);
-        //$("#chosenAction").show();
-		
-		document.getElementById("them").srcObject = stream2;
-		var peer2 = myac.createMediaStreamSource(stream2);
-		
-		let splityou = myac.createChannelSplitter(2); // 2 outputs L and R
-                peer2.connect(splityou);
+		let splityou = yourac.createChannelSplitter(2); // 2 outputs L and R
+                peer.connect(splityou);
                 splityou.connect(join,1,1);
 
                 //join already connected to dcomp
-                var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream2);
+                var recStream = yourac.createMediaStreamDestination();
+                recorder = new MediaRecorder(recStream.stream);
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
@@ -579,14 +568,27 @@ function addStream(stream, kind) {
         saveData(blob)	
 		};
         
-        stream2.onremovetrack = function(event) {
+        stream.onremovetrack = function(event) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                };
         recorder.start(10000);
 		alert('recordertarted');
         window.setInterval(checkLoss,1000);
 
-            startRecTime = Date.now();    
+            startRecTime = Date.now(); 
+
+        console.log('Audio sample Rate is ' + yourac.sampleRate);
+        var scope = doScopeNode(yourac, peer, "farscope");
+        var buffproc = yourProc(scope);
+        var scope2 = doScopeNode(yourac, buffproc, "earscope");
+        scope2.connect(yourac.destination);
+		
+        //$("#chosenAction").show();
+		
+		//document.getElementById("them").srcObject = stream2;
+		//var peer2 = myac.createMediaStreamSource(stream);
+		
+		   
             }
             
          			
