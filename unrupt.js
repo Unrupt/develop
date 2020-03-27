@@ -565,13 +565,7 @@ function addStream(stream, kind) {
 			chunks.push(evt.data);
 			repaintDuration();
 		};
-                var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream);
-                dcomp.connect(recStream);
-		recorder.ondataavailable = function(evt) {
-			chunks.push(evt.data);
-			repaintDuration();
-		};
+                
 
        	recorder.onstop = function(evt) {
 		var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
@@ -582,10 +576,7 @@ function addStream(stream, kind) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
         recorder.start(10000);
-        stream.onremovetrack = function(event) {
-                    console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
-                };
-        recorder.start(10000);
+        
 		//alert('recordertarted');
         window.setInterval(checkLoss,1000);
         
