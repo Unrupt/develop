@@ -559,7 +559,7 @@ function addStream(stream, kind) {
 
                 // join already connected to dcomp
                 var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream);
+                recorder = new MediaRecorder(recStream.stream , {mimeType: 'video/webm;codecs=vp8,opus'});
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
@@ -575,7 +575,8 @@ function addStream(stream, kind) {
         stream.onremovetrack = function(event) {
                     console.log( "Removed track : " + event.track.kind + ": " + event.track.label);
                 };
-        recorder.start(10000);
+        
+		;
         
 		//alert('recordertarted');
         window.setInterval(checkLoss,1000);
