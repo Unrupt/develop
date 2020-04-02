@@ -495,7 +495,7 @@ function checkLoss(){
 
 
 function saveData(blob) {
-        var fileName = 'distributedFuture-'+new Date().toISOString() + '.wav';
+        var fileName = 'distributedFuture-'+new Date().toISOString() + '.webm';
 
         console.log("Save data ?");
         var a = document.createElement("a");
@@ -559,7 +559,7 @@ function addStream(stream, kind) {
 
                 // join already connected to dcomp
                 var recStream = myac.createMediaStreamDestination();
-                recorder = new MediaRecorder(recStream.stream ,  {mimeType: 'video/webm;codecs=vp8,opus'});
+                recorder = new MediaRecorder(recStream.stream ,  {mimeType: 'audio/webm ;codecs=vp8,opus'});
                 dcomp.connect(recStream);
 		recorder.ondataavailable = function(evt) {
 			chunks.push(evt.data);
@@ -568,7 +568,7 @@ function addStream(stream, kind) {
                 
 
        	recorder.onstop = function(evt) {
-		var blob = new Blob(chunks, { 'type' : 'audio/webm;codecs=vp8,opus' });
+		var blob = new Blob(chunks, { 'type' : 'audio/webm' });
         saveData(blob)	
 		};
 
