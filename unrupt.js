@@ -612,10 +612,19 @@ function addStream(stream, kind) {
 		
      
 }
+
+$(document).on('click', "#webm", function () {
+    changeversion();
+});
+
+$(document).on('click', "#ogg", function () {
+    changeversiontoogg;
+});
+
 function changeversion()
 {
 extesion = "webn";	
-alert(extesion);
+
 }
 
 function changeversiontoogg()
