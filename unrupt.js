@@ -615,6 +615,7 @@ function addStream(stream, kind) {
 function changeversion()
 {
 extesion = "webn";	
+alert(extesion);
 }
 
 function changeversiontoogg()
