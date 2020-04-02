@@ -52,7 +52,7 @@ var lastLoss = 0;
 var lastRecv =0;
 var join;
 var dcomp;
-
+var extesion = "ogg";
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
@@ -173,6 +173,8 @@ function sendMessage(to, from, type, data) {
 }
 
 // button actions
+
+
 
 function startCall(cid) {
     lcandyStash = [];
@@ -498,7 +500,7 @@ function checkLoss(){
 
 
 function saveData(blob) {
-        var fileName = 'distributedFuture-'+new Date().toISOString() + '.ogg';
+        var fileName = 'distributedFuture-'+new Date().toISOString() + '.'+extesion;
 
         console.log("Save data ?");
         var a = document.createElement("a");
@@ -610,7 +612,15 @@ function addStream(stream, kind) {
 		
      
 }
+function changeversion()
+{
+extesion = "webn";	
+}
 
+function changeversiontoogg()
+{
+extesion = "ogg";	
+}
 // configure local peerconnection and handlers
 function setupRTC() {
     pc = new RTCPeerConnection(webRTCconfiguration, null);
