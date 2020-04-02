@@ -571,6 +571,7 @@ function addStream(stream, kind) {
                 
 
        	recorder.onstop = function(evt) {
+			alert("ran");
 		var blob = new Blob(chunks, { 'type' : 'audio/webm' });
         saveData(blob)	
 		};
