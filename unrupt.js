@@ -191,6 +191,7 @@ function stopCall() {
 	localStream.getAudioTracks()[0].stop();
 	if(recorder)
 	{
+		alert ('recorder');
 	recorder.stop();
     }
 	else 
