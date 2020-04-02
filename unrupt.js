@@ -498,7 +498,7 @@ function checkLoss(){
 
 
 function saveData(blob) {
-        var fileName = 'distributedFuture-'+new Date().toISOString() + '.webm';
+        var fileName = 'distributedFuture-'+new Date().toISOString() + '.ogg';
 
         console.log("Save data ?");
         var a = document.createElement("a");
