@@ -191,12 +191,12 @@ function stopCall() {
 	localStream.getAudioTracks()[0].stop();
 	if(recorder)
 	{
-		alert ('recorder');
+		
 	recorder.stop();
     }
 	else 
 	{
-		alert('no recording started');
+		
 	
     window.location.href = window.location.href;
 	}
@@ -571,7 +571,7 @@ function addStream(stream, kind) {
                 
 
        	recorder.onstop = function(evt) {
-			alert("ran");
+			
 		var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
         saveData(blob)	
 		};
