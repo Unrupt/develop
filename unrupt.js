@@ -193,8 +193,8 @@ function stopCall() {
 	{
 	recorder.stop();
     }
-	//else 
-		//alert('no recording started');
+	else 
+		alert('no recording started');
 	
     window.location.href = window.location.href;
 }
