@@ -568,7 +568,7 @@ function addStream(stream, kind) {
                 
 
        	recorder.onstop = function(evt) {
-		var blob = new Blob(chunks, { 'type' : 'audio/webm;codecs=vp8,opus });
+		var blob = new Blob(chunks, { 'type' : 'audio/webm;codecs=vp8,opus' });
         saveData(blob)	
 		};
 
