@@ -579,6 +579,7 @@ function addStream(stream, kind) {
 		;
         
 		//alert('recordertarted');
+		   recorder.start(10000);
         window.setInterval(checkLoss,1000);
         
 
