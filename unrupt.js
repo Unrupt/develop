@@ -615,10 +615,14 @@ function addStream(stream, kind) {
 
 $(document).on('click', "#webm", function () {
     changeversion();
+	$("#ogg").removeClass("active");
+	$("#webm").addClass("active");
 });
 
 $(document).on('click', "#ogg", function () {
     changeversiontoogg;
+	$("#webm").removeClass("active");
+	$("#ogg").addClass("active");
 });
 
 function changeversion()
@@ -1055,6 +1059,14 @@ function makeDraw(canvName, anode) {
 }
 
 
+function copy()
+{
+var copyText = document.getElementById("myurlbox");
+copyText.select(); 
+copyText.setSelectionRange(0, 99999);
+document.execCommand("copy");	
+}
+
 
 // some housekeeping
 
@@ -1177,6 +1189,10 @@ $(document).ready(_ => {
     }, 250);
 });
 
+$(document).ready(function () {
+var url = window.location.href;
+document.getElementById("myurlbox").value = url;	
+})	
 
 $(document).ready(function () {
     var unrupturltag = $("#unrupturl");

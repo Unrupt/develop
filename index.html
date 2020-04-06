@@ -34,7 +34,7 @@
                 <a class="dropdown-item" id="btnVersion" href="#"><span id="version" onclick="newconvo();"></span></a>
 				<a class="dropdown-item" id="webm"  href="#"><span  onclick="changeversion();"></span>Select Webm</a>
 				
-				<a class="dropdown-item" id= "ogg" href="#"><span  onclick="changeversiontoogg();"></span>Select ogg</a>
+				<a class="dropdown-item active" id= "ogg" href="#"><span  onclick="changeversiontoogg();"></span>Select ogg</a>
 				
               </div>
             </div>
@@ -129,6 +129,9 @@
 
                     </div>
                     <div class="modal-footer">
+					<input type="text" value="" id="myurlbox">
+                     <button onclick="copy()">Copy URL</button>
+					 </br>
                         <button id="shareDone" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="shared();">Done</button>
                     </div>
                 </div>
