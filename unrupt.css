@@ -308,7 +308,9 @@ outline: none;
 {
 
 }
-
+.modal-dialog {
+    max-width: 300px;
+}
 .dropdown-item:not(:last-child) {
     padding: 12px 1.5rem;
     border-bottom: 1px solid #eee;
