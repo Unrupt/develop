@@ -290,6 +290,24 @@ h1#title {
     width: 100%;
     margin: 0 auto;
 }
+.dropdown-item.active{
+background-color:red;
+text-decoration: underline;	
+}
+
+#myurlbox
+{
+border-top-style: hidden;
+border-right-style: hidden;
+border-left-style: hidden;
+border-bottom-style: hidden;
+outline: none;	
+
+}
+#click
+{
+
+}
 
 .dropdown-item:not(:last-child) {
     padding: 12px 1.5rem;

@@ -123,15 +123,18 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Invite someone to call you</h5>
+                        <h5 class="modal-title">Invite Someone </h5>
+						
+						
                     </div>
+					<textarea    id="myurlbox"> </textarea>
+					
+					<button id="click" class = "btn btn-secondary" onclick="copy()">Copy URL</button>
                     <div class="modal-body" id="shareQR">
 
                     </div>
                     <div class="modal-footer">
-					<input type="text" value="" id="myurlbox">
-                     <button onclick="copy()">Copy URL</button>
-					 </br>
+					
                         <button id="shareDone" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="shared();">Done</button>
                     </div>
                 </div>
