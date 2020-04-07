@@ -309,7 +309,7 @@ outline: none;
 
 }
 .modal-dialog {
-    max-width: 320px;
+    max-width: 315px;
 }
 .dropdown-item:not(:last-child) {
     padding: 12px 1.5rem;
