@@ -53,6 +53,7 @@ var lastRecv =0;
 var join;
 var dcomp;
 var extesion = "ogg";
+var showpanel = '1';
 var toggleMute;
 var unruptEnabled = true;
 var toggleUnrupt;
@@ -762,6 +763,7 @@ function setupAudio() {
             })
             .catch((e) => {
                 console.log('getUserMedia() error:' + e);
+				alert ('we are unable to set up mediadevices please try again. Please ensure That your Microphone and camera is avalable')
                 reject(e);
             });
     });
@@ -934,7 +936,20 @@ function setRole() {
 
     }
 }
-
+function hidepanel()
+{
+	if (showpanel==='1')
+	{
+		voicePanel.hide();
+		showpanel= '2';
+	}
+	else
+	{
+	voicePanel.show();	
+	}	
+	
+	
+}
 function turnOffVideo(){
     videoEnabled = !(localStream.getVideoTracks()[0].enabled);
 
@@ -954,6 +969,10 @@ function turnOffVideo(){
 
 $(document).on('click', "#chooseActionVideo", function () {
     turnOffVideo();
+});
+
+$(document).on('click', "#waveform", function () {
+    hidepanel();
 });
 
 function newconvo()
