@@ -976,10 +976,15 @@ $(document).on('click', "#waveform", function () {
     hidepanel();
 });
 
+$(document).on('click', "#newnameconvo", function () {
+   $("#newconversation").modal('show'); 
+});
+
 function newconvo()
 {
 	sessionStorage.removeItem('unruptId');
 	//sessionStorage.clear(); 
+	
 	window.location = window.location.href.split("?")[0];
 }
 
@@ -1085,6 +1090,32 @@ var copyText = document.getElementById("myurlbox");
 copyText.select(); 
 copyText.setSelectionRange(0, 99999);
 document.execCommand("copy");	
+}
+
+function newconvowithname()
+{
+  sessionStorage.clear(); 
+	var nexturl = window.location.href.split("?")[0];
+    var name = $("#newconvoname").val();
+    // genarate mid 
+	var array = new Uint32Array(8);
+        window.crypto.getRandomValues(array);
+        var hexCodes = [];
+        for (var i = 0; i < array.length; i++) {
+            // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
+            var value = array[i];
+            // toString(16) will give the hex representation of the number without padding
+            var stringValue = value.toString(16)
+            // We use concatenation and slice for padding
+            var padding = '00000000'
+            var paddedValue = (padding + stringValue).slice(-padding.length)
+            hexCodes.push(paddedValue);
+        }
+        mid = hexCodes.join("").toLowerCase();
+        console.log("mid =", mid);
+		//sessionStorage['unruptId'] = mid;
+		localStorage.setItem(mid, mid);	
+ document.location = nexturl + "?" + "unruptId=" + mid + "&name="+ name;		
 }
 
 
@@ -1212,6 +1243,12 @@ $(document).ready(_ => {
 $(document).ready(function () {
 var url = window.location.href;
 document.getElementById("myurlbox").value = url;	
+var convoname = $.getUrlVar("name");
+if (convoname != undefined)
+{
+var clean = escape(convoname);	
+$("#morens").text(clean);
+}
 })	
 
 $(document).ready(function () {

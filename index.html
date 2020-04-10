@@ -17,9 +17,10 @@
         <h3 id="useragent"></h3>
         <div class="alert alert-info" id="message_holder"></div>
 
-        <h1 id="title" class="text-center">
-            
+        <h1 id="title"  class="text-center">
+           <div  id="morens">
            Unrupt Demo
+		   </div>
            
             <div class="dropdown dropdown-inline">
               <button class="btn btn-secondary btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,6 +30,7 @@
 			  <a class="dropdown-item"  target="_blank" href="https://docs.google.com/document/d/1UAAJUiSZ99gehOnBDvY33yO4yRx-voZ71OsuZrqpiDY/edit"><span  > Readme</span></a>
 			  <a class="dropdown-item"  href="">Refresh</a>
 			  <a class="dropdown-item" id="waveform"  href="#">Show/Hide Waveform </a>
+			  <a class="dropdown-item" id="newnameconvo"  href="#">New Conversation </a>
                 <!--<a class="dropdown-item" id="btnRemoteAudio" href="#">Toggle Unrupt Speakers</a>-->
                 <!--<a class="dropdown-item" id="btnResumeBuffer" href="#">Resume Buffer</a>-->
                 <!--<a class="dropdown-item" id="btnToggleConsoleOut" href="#">Toggle Console Output</a>-->
@@ -118,6 +120,23 @@
                 </button>
             </div>
         </div>
+		
+		<div id="newconversation" class="modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		 <div class="modal-header">
+                        <h5 class="modal-title">Name For New Conversation:</h5>
+			</div>			
+		<input type ="text" class="form-control" value="" id="newconvoname">
+		
+		
+		<div class="modal-footer">
+					
+                       <button  class = "btn btn-secondary" onclick="newconvowithname()">Create new conversation </button> 
+                    </div>
+		</div>
+		</div>
+		</div>
 
         <!--  Start Modals     -->
         <div id="share" class="modal" tabindex="-1" role="dialog">
