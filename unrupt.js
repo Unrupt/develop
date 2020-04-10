@@ -196,6 +196,7 @@ function stopCall() {
 	{
 		
 	recorder.stop();
+	window.location.href = window.location.href;
     }
 	else 
 	{
