@@ -501,7 +501,7 @@ function checkLoss(){
 
 
 function saveData(blob) {
-        var fileName = 'distributedFuture-'+new Date().toISOString() + '.'+extesion;
+        var fileName = 'unrupt demo 1.2-'+new Date().toISOString() + '.'+extesion;
 
         console.log("Save data ?");
         var a = document.createElement("a");
