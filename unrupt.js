@@ -945,7 +945,8 @@ function hidepanel()
 	}
 	else
 	{
-	voicePanel.show();	
+	voicePanel.show();
+	showpanel = '1';
 	}	
 	
 	
