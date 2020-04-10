@@ -1246,7 +1246,7 @@ document.getElementById("myurlbox").value = url;
 var convoname = $.getUrlVar("name");
 if (convoname != undefined)
 {
-var clean = escape(convoname);	
+var clean = unescape(convoname);	
 $("#morens").text(clean);
 }
 })	
