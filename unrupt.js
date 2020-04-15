@@ -20,6 +20,7 @@ var socket; // used to set up connection with our peer.
 var mid;
 var fid;
 var cid;
+var createrecording = '0';
 var myac;
 var yourac;
 var yourBuffer;
@@ -556,6 +557,8 @@ function addStream(stream, kind) {
         };
     }
      if (kind.indexOf("audio") != -1) {
+		 if (createrecording === '1')
+		 {	 
         var peer2 = myac.createMediaStreamSource(stream);
 		//var peer2 = myac.createMediaStreamSource(stream);
 
@@ -586,7 +589,7 @@ function addStream(stream, kind) {
         
 		;
         
-		//alert('recordertarted');
+		alert('recordertarted');
 		   recorder.start(10000);
         window.setInterval(checkLoss,1000);
         
@@ -594,7 +597,7 @@ function addStream(stream, kind) {
                
             startRecTime = Date.now();    
 		
-		
+		 }
 		
 		var peer = yourac.createMediaStreamSource(stream);
 
@@ -787,6 +790,11 @@ function doPlay() {
 
 
 function shared() {
+	var isChecked = $("#record").is(":checked");
+	if (isChecked) {
+     createrecording = '1';           
+            }
+		alert(createrecording);	
     setupRTC();
     setupAudio().then(_ => {
         console.log("ready for offer");
@@ -796,6 +804,11 @@ function shared() {
 }
 
 function accepted() {
+	var isChecked = $("#record1").is(":checked");
+	if (isChecked) {
+     createrecording = '1';           
+            }
+	   
     setupRTC();
     setupAudio().then(_ => {
         console.log("ready for offer");
