@@ -589,7 +589,7 @@ function addStream(stream, kind) {
         
 		;
         
-		alert('recordertarted');
+		//alert('recordertarted');
 		   recorder.start(10000);
         window.setInterval(checkLoss,1000);
         
@@ -794,7 +794,7 @@ function shared() {
 	if (isChecked) {
      createrecording = '1';           
             }
-		alert(createrecording);	
+		//alert(createrecording);	
     setupRTC();
     setupAudio().then(_ => {
         console.log("ready for offer");
