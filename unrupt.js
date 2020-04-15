@@ -1100,10 +1100,14 @@ function makeDraw(canvName, anode) {
 
 function copy()
 {
-var copyText = document.getElementById("myurlbox");
-copyText.select(); 
-copyText.setSelectionRange(0, 99999);
-document.execCommand("copy");	
+	
+var el = document.getElementById("myurlbox");
+		var range = document.createRange();
+		range.selectNodeContents(el);
+		var sel = window.getSelection();
+		sel.removeAllRanges();
+		sel.addRange(range);
+		document.execCommand('copy')
 }
 
 function newconvowithname()
@@ -1256,7 +1260,7 @@ $(document).ready(_ => {
 
 $(document).ready(function () {
 var url = window.location.href;
-document.getElementById("myurlbox").value = url;	
+$("#myurlbox").text(url);	
 document.getElementById("myurlbox").disabled = true;
 var convoname = $.getUrlVar("name");
 if (convoname != undefined)

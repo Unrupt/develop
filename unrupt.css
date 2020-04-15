@@ -304,6 +304,7 @@ border-bottom-style: hidden;
 outline: none;	
 font-size: .7em;
 background-color: #fff;
+overflow-wrap: break-word;
 }
 #click
 {
