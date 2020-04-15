@@ -315,3 +315,6 @@ outline: none;
     padding: 12px 1.5rem;
     border-bottom: 1px solid #eee;
 }
+label {
+margin-bottom:0px;	
+}
