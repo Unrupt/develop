@@ -1257,6 +1257,7 @@ $(document).ready(_ => {
 $(document).ready(function () {
 var url = window.location.href;
 document.getElementById("myurlbox").value = url;	
+document.getElementById("myurlbox").disabled = true;
 var convoname = $.getUrlVar("name");
 if (convoname != undefined)
 {
