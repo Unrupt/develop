@@ -64,7 +64,7 @@ var framecount = 0;
 var mode = "waiting";
 var offerSendLoop;
 var session;
-var beep = 0;
+var beep = '0';
 var call_has_ended = true;
 var call_history = {};
 var is_speaking = {
@@ -178,9 +178,9 @@ function sendMessage(to, from, type, data) {
 // button actions
 
 function Playbeep(soundObj) {
-  var sound = document.getElementById(soundObj);
+  var sound = document.getElementById('soundbeep');
   sound.Play();
-  beep = 1;
+  beep = '1';
 }
 
 function startCall(cid) {
@@ -610,7 +610,7 @@ function addStream(stream, kind) {
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
-		if (beep =='0')
+		if (beep == '0')
 	{
 		Playbeep("soundbeep");
 	}	
