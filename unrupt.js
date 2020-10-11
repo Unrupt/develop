@@ -64,6 +64,7 @@ var framecount = 0;
 var mode = "waiting";
 var offerSendLoop;
 var session;
+var beep = 0;
 var call_has_ended = true;
 var call_history = {};
 var is_speaking = {
@@ -176,7 +177,11 @@ function sendMessage(to, from, type, data) {
 
 // button actions
 
-
+function Playbeep(soundObj) {
+  var sound = document.getElementById(soundObj);
+  sound.Play();
+  beep = 1;
+}
 
 function startCall(cid) {
     lcandyStash = [];
@@ -535,6 +540,10 @@ function addStream(stream, kind) {
     if (!kind) {
         kind = "audio/video";
     }
+	if (beep =='0')
+	{
+		PlaySound("soundbeep");
+	}	
     console.log("=====> Kind is " + kind);
     console.log("got new stream" + stream + " kind =" + kind);
     if (kind.indexOf("video") != -1) {
