@@ -179,7 +179,7 @@ function sendMessage(to, from, type, data) {
 
 function Playbeep(soundObj) {
   var sound = document.getElementById('soundbeep');
-  sound.Play();
+  sound.play();
   beep = '1';
 }
 
