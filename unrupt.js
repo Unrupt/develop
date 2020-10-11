@@ -542,7 +542,7 @@ function addStream(stream, kind) {
     }
 	if (beep =='0')
 	{
-		PlaySound("soundbeep");
+		Playbeep("soundbeep");
 	}	
     console.log("=====> Kind is " + kind);
     console.log("got new stream" + stream + " kind =" + kind);
