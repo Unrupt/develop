@@ -540,10 +540,7 @@ function addStream(stream, kind) {
     if (!kind) {
         kind = "audio/video";
     }
-	if (beep =='0')
-	{
-		Playbeep("soundbeep");
-	}	
+	
     console.log("=====> Kind is " + kind);
     console.log("got new stream" + stream + " kind =" + kind);
     if (kind.indexOf("video") != -1) {
@@ -613,6 +610,10 @@ function addStream(stream, kind) {
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
+		if (beep =='0')
+	{
+		Playbeep("soundbeep");
+	}	
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
