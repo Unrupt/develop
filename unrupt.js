@@ -634,28 +634,37 @@ $(document).on('click', "#webm", function () {
 	//alert(active);
 	$("#ogg").removeClass("active");
 	$("#wav").removeClass("active");
+	$("#mp3").removeClass("active");
 	$("#webm").addClass("active");
 });
 
 $(document).on('click', "#ogg", function () {
     changeversiontoogg;
+	$("#wav").removeClass("active");
+	$("#mp3").removeClass("active");
 	$("#webm").removeClass("active");
 	$("#ogg").addClass("active");
 });
 
 $(document).on('click', "#mp3", function () {
-    changeversiontoogg;
+    changeversiontomp3;
 	//$("#webm").removeClass("active");
+	$("#wav").removeClass("active");
+	$("#webm").removeClass("active");
+	$("#ogg").removeClass("active");
 	$("#mp3").addClass("active");
 });
 
 $(document).on('click', "#wav", function () {
-    changeversiontoogg;
+    changeversion;
 	//$("#webm").removeClass("active");
+	$("#ogg").removeClass("active");
+	$("#webm").removeClass("active");
+	$("#mp3").removeClass("active");
 	$("#wav").addClass("active");
 });
 
-function changeversiontotomp3()
+function changeversiontomp3()
 {
 extesion = "mp3";	
 }
