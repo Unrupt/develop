@@ -628,9 +628,12 @@ function addStream(stream, kind) {
      
 }
 
+var active = $(".show a.active").attr('id');
 $(document).on('click', "#webm", function () {
-    changeversion();
+    changeversiontowebm();
+	//alert(active);
 	$("#ogg").removeClass("active");
+	$("#wav").removeClass("active");
 	$("#webm").addClass("active");
 });
 
@@ -639,6 +642,28 @@ $(document).on('click', "#ogg", function () {
 	$("#webm").removeClass("active");
 	$("#ogg").addClass("active");
 });
+
+$(document).on('click', "#mp3", function () {
+    changeversiontoogg;
+	//$("#webm").removeClass("active");
+	$("#mp3").addClass("active");
+});
+
+$(document).on('click', "#wav", function () {
+    changeversiontoogg;
+	//$("#webm").removeClass("active");
+	$("#wav").addClass("active");
+});
+
+function changeversiontotomp3()
+{
+extesion = "mp3";	
+}
+
+function changeversiontowebm()
+{
+extesion = "webm";	
+}
 
 function changeversion()
 {
