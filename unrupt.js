@@ -639,7 +639,7 @@ $(document).on('click', "#webm", function () {
 });
 
 $(document).on('click', "#ogg", function () {
-    changeversiontoogg;
+    changeversiontoogg();
 	$("#wav").removeClass("active");
 	$("#mp3").removeClass("active");
 	$("#webm").removeClass("active");
@@ -647,7 +647,7 @@ $(document).on('click', "#ogg", function () {
 });
 
 $(document).on('click', "#mp3", function () {
-    changeversiontomp3;
+    changeversiontomp3();
 	//$("#webm").removeClass("active");
 	$("#wav").removeClass("active");
 	$("#webm").removeClass("active");
@@ -656,7 +656,7 @@ $(document).on('click', "#mp3", function () {
 });
 
 $(document).on('click', "#wav", function () {
-    changeversion;
+    changeversion();
 	//$("#webm").removeClass("active");
 	$("#ogg").removeClass("active");
 	$("#webm").removeClass("active");
@@ -666,12 +666,14 @@ $(document).on('click', "#wav", function () {
 
 function changeversiontomp3()
 {
-extesion = "mp3";	
+extesion = "mp3";
+alert(extesion);
 }
 
 function changeversiontowebm()
 {
-extesion = "webm";	
+extesion = "webm";
+	
 }
 
 function changeversion()
