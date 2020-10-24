@@ -56,7 +56,7 @@ var dcomp;
 var extesion = "ogg";
 var showpanel = '1';
 var toggleMute;
-var unruptEnabled = false;
+var unruptEnabled = true;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
@@ -610,6 +610,7 @@ function addStream(stream, kind) {
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
+		toggleUnrupt();
 		if (beep == '0')
 	{
 		Playbeep("soundbeep");
