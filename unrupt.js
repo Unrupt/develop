@@ -618,7 +618,10 @@ function addStream(stream, kind) {
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
+		 if ( initiator )
+		 {
 		document.getElementById("pwsIcon").click();
+		 }
         //$("#chosenAction").show();
 		
 		
