@@ -606,7 +606,10 @@ function addStream(stream, kind) {
 		 }
 		
 		var peer = yourac.createMediaStreamSource(stream);
-
+if ( initiator )
+		 {
+		document.getElementById("pwsIcon").click();
+		 }
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
@@ -618,10 +621,7 @@ function addStream(stream, kind) {
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
-		 if ( initiator )
-		 {
-		document.getElementById("pwsIcon").click();
-		 }
+		 
         //$("#chosenAction").show();
 		
 		
