@@ -610,7 +610,7 @@ function addStream(stream, kind) {
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
-		toggleUnrupt();
+		        
 		if (beep == '0')
 	{
 		Playbeep("soundbeep");
@@ -618,6 +618,7 @@ function addStream(stream, kind) {
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
         scope2.connect(yourac.destination);
+		document.getElementById("unruptToggle").click();
         //$("#chosenAction").show();
 		
 		
