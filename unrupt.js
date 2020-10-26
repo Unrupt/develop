@@ -606,10 +606,10 @@ function addStream(stream, kind) {
 		 }
 		
 		var peer = yourac.createMediaStreamSource(stream);
-if ( initiator )
-		 {
-		document.getElementById("pwsIcon").click();
-		 }
+//if ( initiator )
+		// {
+		//document.getElementById("pwsIcon").click();
+		 //}
 
         console.log('Audio sample Rate is ' + yourac.sampleRate);
         var scope = doScopeNode(yourac, peer, "farscope");
