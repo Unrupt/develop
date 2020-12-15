@@ -617,6 +617,7 @@ function addStream(stream, kind) {
 		if (beep == '0')
 	{
 		Playbeep("soundbeep");
+		toggleUnrupt();
 	}	
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
