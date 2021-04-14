@@ -616,12 +616,14 @@ function addStream(stream, kind) {
 		        
 		if (beep == '0')
 	{
-		Playbeep("soundbeep");
+		
 		 if(initiator )
 		{
 		sendMessage(fid, mid, "cheatUnruptToggle", true);
-		
+		console.log("turn off ununrupt");
 		 }
+		Playbeep("soundbeep");
+		
 	}	
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
