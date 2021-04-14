@@ -619,6 +619,7 @@ function addStream(stream, kind) {
 		
 		 if(initiator )
 		{
+		toggleUnrupt();	
 		sendMessage(fid, mid, "cheatUnruptToggle", true);
 		console.log("turn off ununrupt");
 		 }
