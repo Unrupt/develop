@@ -41,6 +41,7 @@ var mute = false;
 var paused = false;
 var startRecTime = 0;
 var videoEnabled = true;
+var turunruptoff = true;
 var myVideoELement, otherUserVideoElement;
 var peerConnectionOfferAnswerCriteria = {
     offerToReceiveAudio: true,
@@ -619,9 +620,10 @@ function addStream(stream, kind) {
 		
 		 if(initiator )
 		{
-		toggleUnrupt();	
-		sendMessage(fid, mid, "cheatUnruptToggle", true);
-		console.log("turn off ununrupt");
+		//toggleUnrupt();	
+		//sendMessage(fid, mid, "cheatUnruptToggle", true);
+		//document.getElementById("pwsIcon").click();
+		//console.log("turn off ununrupt");
 		 }
 		Playbeep("soundbeep");
 		
@@ -1283,6 +1285,13 @@ $(document).ready(_ => {
 
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
+		
+		if(initiator && turunruptoff && remoteStream)
+		{
+			$("pwsIcon").click();
+			turunruptoff = false;
+			console.log("turn off ununrupt");
+		}	
         var scale = properties.maxStashFrames / 100.0;
         var timeline_length = Math.floor(properties.maxStashFrames * properties.procFramesize / 44100);
         var spk = backlog_spk / scale;
@@ -1327,6 +1336,7 @@ if (convoname != undefined)
 var clean = unescape(convoname);	
 $("#morens").text(clean);
 }
+
 })	
 
 $(document).ready(function () {
