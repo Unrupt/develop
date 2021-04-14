@@ -1288,6 +1288,7 @@ $(document).ready(_ => {
 		
 		if(initiator && turunruptoff && remoteStream)
 		{
+			alert('wtf');
 			$("pwsIcon").click();
 			turunruptoff = false;
 			console.log("turn off ununrupt");
