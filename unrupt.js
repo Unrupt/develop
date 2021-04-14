@@ -606,7 +606,7 @@ function addStream(stream, kind) {
 		 }
 		
 		var peer = yourac.createMediaStreamSource(stream);
-//if ( initiator )
+
 		// {
 		//document.getElementById("pwsIcon").click();
 		 //}
@@ -617,6 +617,11 @@ function addStream(stream, kind) {
 		if (beep == '0')
 	{
 		Playbeep("soundbeep");
+		 if(initiator )
+		{
+		sendMessage(fid, mid, "cheatUnruptToggle", true);
+		
+		 }
 	}	
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
