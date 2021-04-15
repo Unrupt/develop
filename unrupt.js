@@ -618,13 +618,7 @@ function addStream(stream, kind) {
 		if (beep == '0')
 	{
 		
-		 if(initiator )
-		{
-		//toggleUnrupt();	
-		//sendMessage(fid, mid, "cheatUnruptToggle", true);
-		//document.getElementById("pwsIcon").click();
-		//console.log("turn off ununrupt");
-		 }
+		 
 		Playbeep("soundbeep");
 		
 	}	
@@ -1288,7 +1282,7 @@ $(document).ready(_ => {
 		
 		if(initiator && turunruptoff && remoteStream)
 		{
-			alert('wtf');
+			//alert('wtf');
 			$("#pwsIcon").click();
 			turunruptoff = false;
 			console.log("turn off ununrupt");
