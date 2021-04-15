@@ -1280,7 +1280,7 @@ $(document).ready(_ => {
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
 		
-		if(initiator && turunruptoff && remoteStream)
+		if(!initiator && turunruptoff && remoteStream)
 		{
 			//alert('wtf');
 			$("#pwsIcon").click();
