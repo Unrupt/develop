@@ -40,7 +40,7 @@ var iamspeaking = false;
 var mute = false;
 var paused = false;
 var startRecTime = 0;
-var videoEnabled = true;
+var videoEnabled = false;
 var turunruptoff = true;
 var myVideoELement, otherUserVideoElement;
 var peerConnectionOfferAnswerCriteria = {
@@ -264,7 +264,8 @@ function yourProc(node) {
 
     var oldmute = false;
 
-    toggleUnrupt = () => {
+   
+   = () => {
         var ubi = $('#pwsIcon');
         if (unruptEnabled) {
             unruptEnabled = false;
@@ -1280,13 +1281,7 @@ $(document).ready(_ => {
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
 		
-		if(!initiator && turunruptoff && remoteStream)
-		{
-			//alert('wtf');
-			$("#pwsIcon").click();
-			turunruptoff = false;
-			console.log("turn off ununrupt");
-		}	
+		
         var scale = properties.maxStashFrames / 100.0;
         var timeline_length = Math.floor(properties.maxStashFrames * properties.procFramesize / 44100);
         var spk = backlog_spk / scale;
@@ -1318,6 +1313,14 @@ $(document).ready(_ => {
                 //otherUserMediaElement.srcObject.getTracks().forEach(t => t.enabled = !pause);
             }
         }
+		//if(!initiator && turunruptoff && remoteStream)
+		//{
+			//alert('wtf');
+			//$("#pwsIcon").click();
+			//turunruptoff = false;
+			//console.log("turn off ununrupt");
+		//}	
+		
     }, 250);
 });
 
