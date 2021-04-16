@@ -265,7 +265,7 @@ function yourProc(node) {
     var oldmute = false;
 
    
-   = () => {
+   toggleUnrupt = () => {
         var ubi = $('#pwsIcon');
         if (unruptEnabled) {
             unruptEnabled = false;
