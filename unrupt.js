@@ -40,8 +40,7 @@ var iamspeaking = false;
 var mute = false;
 var paused = false;
 var startRecTime = 0;
-var videoEnabled = false;
-var turunruptoff = true;
+var videoEnabled = true;
 var myVideoELement, otherUserVideoElement;
 var peerConnectionOfferAnswerCriteria = {
     offerToReceiveAudio: true,
@@ -264,8 +263,7 @@ function yourProc(node) {
 
     var oldmute = false;
 
-   
-   toggleUnrupt = () => {
+    toggleUnrupt = () => {
         var ubi = $('#pwsIcon');
         if (unruptEnabled) {
             unruptEnabled = false;
@@ -608,7 +606,7 @@ function addStream(stream, kind) {
 		 }
 		
 		var peer = yourac.createMediaStreamSource(stream);
-
+//if ( initiator )
 		// {
 		//document.getElementById("pwsIcon").click();
 		 //}
@@ -618,10 +616,7 @@ function addStream(stream, kind) {
 		        
 		if (beep == '0')
 	{
-		
-		 
 		Playbeep("soundbeep");
-		
 	}	
         var buffproc = yourProc(scope);
         var scope2 = doScopeNode(yourac, buffproc, "earscope");
@@ -1280,8 +1275,6 @@ $(document).ready(_ => {
 
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
-		
-		
         var scale = properties.maxStashFrames / 100.0;
         var timeline_length = Math.floor(properties.maxStashFrames * properties.procFramesize / 44100);
         var spk = backlog_spk / scale;
@@ -1313,14 +1306,6 @@ $(document).ready(_ => {
                 //otherUserMediaElement.srcObject.getTracks().forEach(t => t.enabled = !pause);
             }
         }
-		//if(!initiator && turunruptoff && remoteStream)
-		//{
-			//alert('wtf');
-			//$("#pwsIcon").click();
-			//turunruptoff = false;
-			//console.log("turn off ununrupt");
-		//}	
-		
     }, 250);
 });
 
@@ -1334,7 +1319,6 @@ if (convoname != undefined)
 var clean = unescape(convoname);	
 $("#morens").text(clean);
 }
-
 })	
 
 $(document).ready(function () {
