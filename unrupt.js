@@ -402,12 +402,7 @@ function yourProc(node) {
         }
     };
     node.connect(buffer);
-	if (startofcall && initiator)
-	{
-	//toggleUnrupt();
-    sendMessage(fid, mid, "cheatUnruptToggle", true);
-	startofcall = false ;
-	}
+	
     procs.push(buffer)
     return buffer;
 }
@@ -1287,6 +1282,19 @@ $(document).ready(_ => {
 
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
+	if (startofcall && initiator && remoteStream)
+	{
+	//toggleUnrupt();
+    sendMessage(fid, mid, "cheatUnruptToggle", true);
+	startofcall = false ;
+	}
+	
+	if (!unruptEnabled && !videoEnabled && remoteStream)
+	{
+		document.getElementById('out').muted = false;
+        document.getElementById('out').play();
+	}
+	
         var scale = properties.maxStashFrames / 100.0;
         var timeline_length = Math.floor(properties.maxStashFrames * properties.procFramesize / 44100);
         var spk = backlog_spk / scale;
