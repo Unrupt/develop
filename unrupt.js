@@ -404,8 +404,9 @@ function yourProc(node) {
     node.connect(buffer);
 	if (startofcall && initiator)
 	{
-	toggleUnrupt();
+	//toggleUnrupt();
     sendMessage(fid, mid, "cheatUnruptToggle", true);
+	startofcall = false ;
 	}
     procs.push(buffer)
     return buffer;
