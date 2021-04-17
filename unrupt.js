@@ -266,17 +266,7 @@ function yourProc(node) {
 	
 	// if call just started unrupt is off 
 	
-	if (startofcall)
-	{
-		  console.log('disconnecting the buffer');
-            node.disconnect(buffer);
-            document.getElementById('out').muted = false;
-            document.getElementById('out').play();
-            $('#pauseOther').hide();
-            ubi.removeClass("fa-exchange-alt");
-            ubi.addClass("fa-arrows-alt-h");
-			startofcall = false;
-	}
+	
 
     toggleUnrupt = () => {
         var ubi = $('#pwsIcon');
@@ -412,6 +402,11 @@ function yourProc(node) {
         }
     };
     node.connect(buffer);
+	if (startofcall)
+	{
+	toggleUnrupt();	
+	startofcall = false;
+	}
     procs.push(buffer)
     return buffer;
 }
@@ -485,6 +480,7 @@ function myProc(node) {
     };
     node.connect(buffer);
     procs.push(buffer);
+	
     return buffer;
 }
 
