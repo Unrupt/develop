@@ -404,7 +404,12 @@ function yourProc(node) {
     node.connect(buffer);
 	if (startofcall)
 	{
-	toggleUnrupt();	
+	node.disconnect(buffer);
+    document.getElementById('out').muted = false;
+     document.getElementById('out').play();
+    $('#pauseOther').hide();
+    ubi.removeClass("fa-exchange-alt");
+    ubi.addClass("fa-arrows-alt-h");
 	startofcall = false;
 	}
     procs.push(buffer)
