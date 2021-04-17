@@ -56,7 +56,7 @@ var dcomp;
 var extesion = "ogg";
 var showpanel = '1';
 var toggleMute;
-var unruptEnabled = false;
+var unruptEnabled = true;
 var startofcall = true;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -402,15 +402,10 @@ function yourProc(node) {
         }
     };
     node.connect(buffer);
-	if (startofcall)
+	if (startofcall && initiator)
 	{
-	node.disconnect(buffer);
-    document.getElementById('out').muted = false;
-     document.getElementById('out').play();
-    $('#pauseOther').hide();
-    ubi.removeClass("fa-exchange-alt");
-    ubi.addClass("fa-arrows-alt-h");
-	startofcall = false;
+	toggleUnrupt();
+    sendMessage(fid, mid, "cheatUnruptToggle", true);
 	}
     procs.push(buffer)
     return buffer;
