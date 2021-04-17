@@ -57,6 +57,7 @@ var extesion = "ogg";
 var showpanel = '1';
 var toggleMute;
 var unruptEnabled = false;
+var startofcall = true;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
@@ -262,6 +263,20 @@ function yourProc(node) {
     console.log('PauseButton!!!', pb);
 
     var oldmute = false;
+	
+	// if call just started unrupt is off 
+	
+	if (startofcall)
+	{
+		  console.log('disconnecting the buffer');
+            node.disconnect(buffer);
+            document.getElementById('out').muted = false;
+            document.getElementById('out').play();
+            $('#pauseOther').hide();
+            ubi.removeClass("fa-exchange-alt");
+            ubi.addClass("fa-arrows-alt-h");
+			startofcall = false;
+	}
 
     toggleUnrupt = () => {
         var ubi = $('#pwsIcon');
