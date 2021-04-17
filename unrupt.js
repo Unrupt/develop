@@ -56,7 +56,7 @@ var dcomp;
 var extesion = "ogg";
 var showpanel = '1';
 var toggleMute;
-var unruptEnabled = true;
+var unruptEnabled = false;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
