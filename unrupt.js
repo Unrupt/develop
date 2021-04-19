@@ -1288,7 +1288,7 @@ $(document).ready(_ => {
 	
 	
     ///sendMessage(fid, mid, "cheatUnruptToggle", true);
-	$('#pwsIcon').click;
+	$('#pwsIcon').click();
 	startofcall = false ;
 	}
 	
