@@ -1284,7 +1284,9 @@ $(document).ready(_ => {
     tick = window.setInterval(t => {
 	if (startofcall && !initiator && remoteStream)
 	{
-	//toggleUnrupt();
+	
+	toggleUnrupt();
+	
     sendMessage(fid, mid, "cheatUnruptToggle", true);
 	startofcall = false ;
 	}
