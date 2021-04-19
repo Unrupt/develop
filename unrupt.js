@@ -1282,7 +1282,7 @@ $(document).ready(_ => {
 
     $('#version').text(properties.versionname);
     tick = window.setInterval(t => {
-	if (startofcall && initiator && remoteStream)
+	if (startofcall && !initiator && remoteStream)
 	{
 	//toggleUnrupt();
     sendMessage(fid, mid, "cheatUnruptToggle", true);
