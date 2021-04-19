@@ -1285,7 +1285,7 @@ $(document).ready(_ => {
 	if (startofcall && !initiator && remoteStream)
 	{
 	
-	toggleUnrupt();
+	
 	
     sendMessage(fid, mid, "cheatUnruptToggle", true);
 	startofcall = false ;
