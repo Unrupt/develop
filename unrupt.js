@@ -1295,7 +1295,7 @@ $(document).ready(_ => {
 	if (!unruptEnabled && !videoEnabled && remoteStream)
 	{
 		document.getElementById('out').muted = false;
-        document.getElementById('out').play();
+        //document.getElementById('out').play();
 	}
 	
         var scale = properties.maxStashFrames / 100.0;
