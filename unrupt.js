@@ -89,11 +89,11 @@ function messageDeal(event) {
             break;
 		
 		case "pauseon":
-		playsound(pauseon);
+		playsound('pauseon');
         break;
 		
 		case "pauseoff":
-		playsound(pauseoff);
+		playsound('pauseoff');
         break;
 		
 			
