@@ -157,10 +157,23 @@ function sendJ(m) {
 }
 
 function playsound(auidioid){
- var sound = document.getElementById(auidioid);
+	switch (auidioid) {
+	case "pauseon":
+		var sound = document.getElementById('pauseon');
+        break;
+		
+		case "pauseoff":
+		var sound = document.getElementById('pauseoff');
+        break;	
+		
+		
+	}
+ 
   sound.play();	
 	
-}	
+}
+
+	
 
 function sendMessage(to, from, type, data) {
 
