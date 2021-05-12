@@ -87,6 +87,16 @@ function messageDeal(event) {
         case "cheatUnruptToggle":
             toggleUnrupt();
             break;
+		
+		case "pauseon":
+		playsound(pauseon);
+        break;
+		
+		case "pauseoff":
+		playsound(pauseoff);
+        break;
+		
+			
         case "offer":
             if (pc) {
                 if (session == null) {
@@ -145,6 +155,12 @@ function sendJ(m) {
     console.log("sending ", m);
     socket.send(message);
 }
+
+function playsound(sound){
+ var sound = document.getElementById(sound);
+  sound.play();	
+	
+}	
 
 function sendMessage(to, from, type, data) {
 
@@ -309,11 +325,16 @@ function yourProc(node) {
             pbi.addClass("fa-pause-circle");
             oldmute = mute;
             setMute(true);
+			sendMessage(fid, mid, "pauseon", true);
+			playsound(pauseon);
+			
         } else {
             paused = false;
             pbi.removeClass("fa-pause-circle");
             pbi.addClass("fa-play-circle");
             setMute(oldmute);
+			sendMessage(fid, mid, "pauseoff", true);
+			playsound(pauseoff);
         }
     });
 
