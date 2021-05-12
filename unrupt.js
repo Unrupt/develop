@@ -340,7 +340,7 @@ function yourProc(node) {
             oldmute = mute;
             setMute(true);
 			sendMessage(fid, mid, "pauseon", true);
-			playsound(pauseon);
+			playsound('pauseon');
 			
         } else {
             paused = false;
@@ -348,7 +348,7 @@ function yourProc(node) {
             pbi.addClass("fa-play-circle");
             setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
-			playsound(pauseoff);
+			playsound('pauseoff');
         }
     });
 
