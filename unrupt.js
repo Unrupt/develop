@@ -157,7 +157,7 @@ function sendJ(m) {
 }
 
 function playsound(auidioid){
-	aleart (auidioid);
+	 alert(auidioid);
 	switch (auidioid) {
 	case "pauseon":
 		var sound = document.getElementById('pauseon');
