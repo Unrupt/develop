@@ -156,8 +156,8 @@ function sendJ(m) {
     socket.send(message);
 }
 
-function playsound(sound){
- var sound = document.getElementById(sound);
+function playsound(auidioid){
+ var sound = document.getElementById(auidioid);
   sound.play();	
 	
 }	
