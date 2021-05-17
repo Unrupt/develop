@@ -335,8 +335,8 @@ function yourProc(node) {
 
         if (!paused) {
             paused = true;
-            pbi.removeClass("fa-play-circle");
-            pbi.addClass("fa-pause-circle");
+            pbi.removeClass("fa-pause-circle");
+            pbi.addClass("fa-play-circle");
             oldmute = mute;
             setMute(true);
 			sendMessage(fid, mid, "pauseon", true);
@@ -344,8 +344,9 @@ function yourProc(node) {
 			
         } else {
             paused = false;
-            pbi.removeClass("fa-pause-circle");
-            pbi.addClass("fa-play-circle");
+            pbi.removeClass("fa-play-circle");
+            pbi.addClass("fa-pause-circle");
+			
             setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
