@@ -360,6 +360,7 @@ function yourProc(node) {
 			
 			if (unruptstate)
 			{
+			 alert('1');
 			 $('#pwsIcon').click();
              unruptstate = false;		
 			}
