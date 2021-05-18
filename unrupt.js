@@ -357,13 +357,13 @@ function yourProc(node) {
 			
             setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
-			playsound('pauseoff');
+			
 			if (unruptstate)
 			{
 			 $('#pwsIcon').click();
              unruptstate = false;		
 			}
-			
+			playsound('pauseoff');
         }
     });
 
