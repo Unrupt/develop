@@ -58,6 +58,7 @@ var showpanel = '1';
 var toggleMute;
 var unruptEnabled = true;
 var startofcall = true;
+var unruptstate = false;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
@@ -339,7 +340,8 @@ function yourProc(node) {
             pbi.addClass("fa-play-circle");
 			if (!unruptEnabled)
 			{
-			 $('#pwsIcon').click();	
+			 $('#pwsIcon').click();
+             unruptstate = true;			 
 			}
 			oldmute = mute;
             setMute(true);
@@ -356,6 +358,12 @@ function yourProc(node) {
             setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
+			if (unruptstate)
+			{
+			 $('#pwsIcon').click();
+             unruptstate = false;		
+			}
+			
         }
     });
 
