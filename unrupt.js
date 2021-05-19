@@ -356,7 +356,7 @@ function yourProc(node) {
             pbi.addClass("fa-pause-circle");
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
-            setMute(false).then(_ => {
+            document.getElementById("out").play().then(_ => {
 	        if (unruptstate)
 			{
 			 $('#pwsIcon').click();
@@ -365,7 +365,7 @@ function yourProc(node) {
 	
 	      });
 			
-			
+		setMute(oldmute	
 			
 			
         }
