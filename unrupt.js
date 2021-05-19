@@ -354,17 +354,20 @@ function yourProc(node) {
             paused = false;
             pbi.removeClass("fa-play-circle");
             pbi.addClass("fa-pause-circle");
-			
-            setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
-			
-			if (unruptstate)
-			{
-			// alert('1');
-			 //$('#pwsIcon').click();
-             unruptstate = false;		
-			}
 			playsound('pauseoff');
+            setMute(oldmute).then(_ => {
+	        if (unruptstate)
+			{
+			 $('#pwsIcon').click();
+             unruptstate = false;
+			}	
+	
+	      });
+			
+			
+			
+			
         }
     });
 
