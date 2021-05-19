@@ -356,7 +356,7 @@ function yourProc(node) {
             pbi.addClass("fa-pause-circle");
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
-            setMute(oldmute).then(_ => {
+            setMute(false).then(_ => {
 	        if (unruptstate)
 			{
 			 $('#pwsIcon').click();
@@ -476,7 +476,8 @@ function setMute(m) {
         mi.removeClass("fa-microphone-slash");
         mi.addClass("fa-microphone");
         audioTracks[0].enabled = true;
-        document.getElementById("out").muted = true;
+        document.getElementById("out").
+		d = true;
         document.getElementById("out").play();
     }
 }
