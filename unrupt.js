@@ -360,8 +360,8 @@ function yourProc(node) {
 			
 			if (unruptstate)
 			{
-			 alert('1');
-			 $('#pwsIcon').click();
+			// alert('1');
+			 //$('#pwsIcon').click();
              unruptstate = false;		
 			}
 			playsound('pauseoff');
