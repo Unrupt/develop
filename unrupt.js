@@ -356,14 +356,7 @@ function yourProc(node) {
             pbi.addClass("fa-pause-circle");
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
-            document.getElementById("out").play().then(_ => {
-	        if (unruptstate)
-			{
-			 $('#pwsIcon').click();
-             unruptstate = false;
-			}	
-	
-	      });
+           
 			
 		setMute(oldmute);	
 			
@@ -1384,6 +1377,15 @@ $(document).ready(_ => {
                 //otherUserMediaElement.srcObject.getTracks().forEach(t => t.enabled = !pause);
             }
         }
+		
+		
+		
+		if (!is_speaking["earscope"] && unruptstate)
+		{
+			$('#pwsIcon').click();
+             unruptstate = false;
+			
+		}
     }, 250);
 });
 
