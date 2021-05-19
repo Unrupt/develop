@@ -1378,7 +1378,7 @@ $(document).ready(_ => {
             }
         }
 		
-		alert (!is_speaking["earscope"]);
+		alert (backlog_spk);
 		
 		if (!is_speaking["earscope"] && unruptstate)
 		{
