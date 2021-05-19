@@ -1384,7 +1384,7 @@ $(document).ready(_ => {
 		{
 			
 			$('#pwsIcon').click();
-			alert('1');
+			
              unruptstate = false;
 			
 		}
