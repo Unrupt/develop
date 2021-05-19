@@ -1380,7 +1380,7 @@ $(document).ready(_ => {
 		
 		//alert (backlog);
 		
-		if (playout != "playing" && unruptstate)
+		if (playout != "playing" && unruptstate && !paused)
 		{
 			
 			$('#pwsIcon').click();
