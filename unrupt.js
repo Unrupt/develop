@@ -1378,9 +1378,9 @@ $(document).ready(_ => {
             }
         }
 		
-		alert (backlog);
+		//alert (backlog);
 		
-		if (!is_speaking["earscope"] && unruptstate)
+		if (backlog == 0 && unruptstate)
 		{
 			
 			$('#pwsIcon').click();
