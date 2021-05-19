@@ -1378,11 +1378,13 @@ $(document).ready(_ => {
             }
         }
 		
-		
+		alert (!is_speaking["earscope"]);
 		
 		if (!is_speaking["earscope"] && unruptstate)
 		{
+			
 			$('#pwsIcon').click();
+			alert('1");
              unruptstate = false;
 			
 		}
