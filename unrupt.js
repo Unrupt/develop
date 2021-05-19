@@ -1378,7 +1378,7 @@ $(document).ready(_ => {
             }
         }
 		
-		alert (backlog_spk);
+		alert (backlog);
 		
 		if (!is_speaking["earscope"] && unruptstate)
 		{
