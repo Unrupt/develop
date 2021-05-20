@@ -464,7 +464,7 @@ function setMute(m) {
         mi.addClass("fa-microphone-slash");
         audioTracks[0].enabled = false;
         document.getElementById("out").muted = false;
-        document.getElementById("out").pause();
+        //document.getElementById("out").pause();
     } else {
         mi.removeClass("fa-microphone-slash");
         mi.addClass("fa-microphone");
