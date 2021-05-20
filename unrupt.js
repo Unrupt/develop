@@ -345,7 +345,7 @@ function yourProc(node) {
 			}
 			oldmute = mute;
             setMute(true);
-			
+			document.getElementById("out").pause();
 			
 			sendMessage(fid, mid, "pauseon", true);
 			playsound('pauseon');
