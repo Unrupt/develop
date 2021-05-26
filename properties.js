@@ -6,10 +6,10 @@ var properties = {
     procFramesize: 4096, // how many samples (at 44k1 Hz) in a frame. default 4096 ->  ~100ms
                          // this impacts the latency - but go too low and the audio will break up
     scopeFftSize : 2048, // number of samples in the FFT for the oscilloscope. default 2048 seems ok
-    micSilenceThreshold : 0.035, // minumum mean mic volume (in range of 0.0->1.0) of a frame that contains voice
+    micSilenceThreshold : 0.010, // minumum mean mic volume (in range of 0.0->1.0) of a frame that contains voice
                                   // used to trigger pause/unpause
                                   // default 0.0175 ok on imacs
-    farSilenceThreshold : 0.035, // minimum mean remote volume (in range of 0.0->1.0) of a frame that contains voice
+    farSilenceThreshold : 0.010, // minimum mean remote volume (in range of 0.0->1.0) of a frame that contains voice
                                   // used to trim silence from playout
                                   // default 0.0175 ok on imacs
 
