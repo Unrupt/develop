@@ -455,7 +455,12 @@ function setMute(m) {
         mi.addClass("fa-microphone");
         audioTracks[0].enabled = true;
         document.getElementById("out").muted = true;
+		
+		// getting playing back twice after mute
+		if(!unruptEnabled)
+		{	
         document.getElementById("out").play();
+		}
     }
 }
 
