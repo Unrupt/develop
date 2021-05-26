@@ -58,7 +58,6 @@ var showpanel = '1';
 var toggleMute;
 var unruptEnabled = true;
 var startofcall = true;
-var unruptstate = false;
 var toggleUnrupt;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
@@ -88,7 +87,7 @@ function messageDeal(event) {
         case "cheatUnruptToggle":
             toggleUnrupt();
             break;
-		
+			
 		case "pauseon":
 		playsound('pauseon');
         break;
@@ -97,7 +96,6 @@ function messageDeal(event) {
 		playsound('pauseoff');
         break;
 		
-			
         case "offer":
             if (pc) {
                 if (session == null) {
@@ -174,8 +172,6 @@ function playsound(auidioid){
   sound.play();	
 	
 }
-
-	
 
 function sendMessage(to, from, type, data) {
 
@@ -338,29 +334,18 @@ function yourProc(node) {
             paused = true;
             pbi.removeClass("fa-pause-circle");
             pbi.addClass("fa-play-circle");
-			if (!unruptEnabled)
-			{
-			 $('#pwsIcon').click();
-             unruptstate = true;			 
-			}
-			oldmute = mute;
+            oldmute = mute;
             setMute(true);
 			document.getElementById("out").pause();
-			
 			sendMessage(fid, mid, "pauseon", true);
 			playsound('pauseon');
-			
         } else {
             paused = false;
             pbi.removeClass("fa-play-circle");
             pbi.addClass("fa-pause-circle");
+            setMute(oldmute);
 			sendMessage(fid, mid, "pauseoff", true);
 			playsound('pauseoff');
-           
-			
-		setMute(oldmute);	
-			
-			
         }
     });
 
@@ -469,8 +454,7 @@ function setMute(m) {
         mi.removeClass("fa-microphone-slash");
         mi.addClass("fa-microphone");
         audioTracks[0].enabled = true;
-        document.getElementById("out").
-		d = true;
+        document.getElementById("out").muted = true;
         document.getElementById("out").play();
     }
 }
@@ -1377,17 +1361,6 @@ $(document).ready(_ => {
                 //otherUserMediaElement.srcObject.getTracks().forEach(t => t.enabled = !pause);
             }
         }
-		
-		//alert (backlog);
-		
-		if (playout != "playing" && unruptstate && !paused)
-		{
-			
-			$('#pwsIcon').click();
-			
-             unruptstate = false;
-			
-		}
     }, 250);
 });
 
